@@ -31,6 +31,19 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+          $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|unique:users',
+            'password' => 'required|max:255',
+            'no_tlp' => 'required',
+            'jk' => 'required'
+        ]);
+
+        $request['password'] = Hash::make($request->password);
+
+        $user = User::create($request->all());
+
+        return response(['data' => $user]);
     }
 
     /**
