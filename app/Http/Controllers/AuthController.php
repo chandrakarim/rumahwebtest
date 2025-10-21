@@ -33,7 +33,7 @@ class AuthController extends Controller
         $request->user()->currentAccessToken()->delete();
     }
 
-    public function cek(Request $request) {
+    public function me(Request $request) {
         return response()->json(Auth::user());
     }
 }
