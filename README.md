@@ -1,3 +1,11 @@
+## Catatan Perubahan / Notes
+
+Mohon maaf atas kesalahan pada repository sebelumnya.  
+Proyek ini dikerjakan sesuai waktu yang diberikan (dimulai pukul 10:00 pada tanggal 21-10-2025 dengan durasi 90 menit).  
+Commit terakhir dilakukan setelah proses final testing untuk memastikan seluruh fitur berjalan dengan baik dan stabil.  
+Terima kasih atas pengertiannya.
+
+
 # 🏠 REST API Laravel - RumahWebTest
 
 [![PHP Version](https://img.shields.io/badge/PHP-10+-blue)](https://www.php.net/)
@@ -106,11 +114,11 @@ Jika endpoint menggunakan autentikasi:
 
 | Method | Endpoint          | Deskripsi                            |
 | ------ | ----------------- | ------------------------------------ |
-| GET    | `/api/items`      | Mengambil daftar item                |
-| POST   | `/api/items`      | Menambahkan item baru                |
-| GET    | `/api/items/{id}` | Mengambil detail item berdasarkan ID |
-| PUT    | `/api/items/{id}` | Memperbarui item berdasarkan ID      |
-| DELETE | `/api/items/{id}` | Menghapus item berdasarkan ID        |
+| GET    | `/api/users`      | Mengambil daftar user                |
+| POST   | `/api/users`      | Menambahkan user baru                |
+| GET    | `/api/users/{id}` | Mengambil detail user berdasarkan ID |
+| PUT    | `/api/users/{id}` | Memperbarui user berdasarkan ID      |
+| DELETE | `/api/users/{id}` | Menghapus user berdasarkan ID        |
 
 > Setiap endpoint dilengkapi deskripsi, parameter, dan contoh respons di koleksi Postman.
 
