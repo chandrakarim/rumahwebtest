@@ -1,11 +1,3 @@
-## Catatan Perubahan / Notes
-
-Mohon maaf atas kesalahan pada repository sebelumnya.  
-Proyek ini dikerjakan sesuai waktu yang diberikan (dimulai pukul 10:00 pada tanggal 21-10-2025 dengan durasi 90 menit).  
-Commit terakhir dilakukan setelah proses final testing untuk memastikan seluruh fitur berjalan dengan baik dan stabil.  
-Terima kasih atas pengertiannya.
-
-
 # 🏠 REST API Laravel - RumahWebTest
 
 [![PHP Version](https://img.shields.io/badge/PHP-10+-blue)](https://www.php.net/)
