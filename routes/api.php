@@ -15,18 +15,27 @@ use App\Http\Controllers\UserController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
+// =====================
+// AUTH
+// =====================
 Route::prefix('auth')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
+    Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 });
 
+// =====================
+// PUBLIC USER ROUTES
+// =====================
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{id}', [UserController::class, 'show']);
-Route::post('/users/store',[UserController::class,'store']);
-Route::put('/users/update',[UserController::class, 'update']);
-Route::delete('users/delete',[UserController::class,'delete']);
+Route::post('/users', [UserController::class, 'store']);
+
+// =====================
+// PROTECTED USER ROUTES
+// ONLY USER LOGIN CAN UPDATE & DELETE THEIR OWN DATA
+// =====================
+Route::middleware('auth:sanctum')->group(function () {
+    Route::patch('/users/{id}', [UserController::class, 'update']);
+    Route::delete('/users/{id}', [UserController::class, 'destroy']);
+});

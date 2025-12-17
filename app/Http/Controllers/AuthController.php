@@ -16,24 +16,37 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required'
         ]);
-        return $request;
-        $user = User::where('email', $request->email)->first();
-        if (! $user || ! Hash::check($request->password, $user->password)) {
-            throw ValidationException::withMessages([
-                'email' => ['The provided credentials are incorrect.'],
-            ]);
+
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return response()->json([
+                'message' => 'Email atau password salah'
+            ], 401);
         }
-        return $user->createToken('user login')->plainTextToken;
+
+        $user = Auth::user();
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'message' => 'Login berhasil',
+            'token' => $token,
+            'user' => $user
+        ]);
     }
 
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
+
+        return response()->json([
+            'message' => 'Logout berhasil'
+        ]);
     }
 
-    public function cek(Request $request) {
+    public function me(Request $request)
+    {
         return response()->json(Auth::user());
     }
 }
